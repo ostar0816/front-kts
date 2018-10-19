@@ -1,0 +1,33 @@
+.page-wrapper
+  .content-wrapper
+    form.form-group(#contactForm="ngForm", (ngSubmit)="applyScholarship(contactForm.valid)", novalidate)
+      .header-nav
+        .header-title
+          ion-icon.arrow-back-icon(tappable, ios="ios-arrow-back", md="ios-arrow-back", (click)="goBack()")
+          h1.headers
+            | Apply
+        .button-group
+            button.kts-primary-btn.send-button(type="submit")
+              | Submit
+      .form-content.scroll-content
+        .notify-comment
+          | You may also access this application on a computer.
+        .item-info
+          .input-label
+            | FULL NAME
+          input.kts-input(type="text", readonly, [(ngModel)]="fullName", [ngModelOptions]="{standalone: true}")         
+        .item-info
+          .input-label
+            | GRADUATION YEAR
+          input.kts-input(type="text", readonly, [(ngModel)]="gradeYear", [ngModelOptions]="{standalone: true}")
+        .item-info
+          .input-label
+            | SCHOOL
+          input.kts-input(type="text", readonly, [(ngModel)]="organizationName", [ngModelOptions]="{standalone: true}")
+        .item-info
+          .input-label-comment
+            | Create a 200-300 word explanation of how Keys to Success has affected your academic performance.
+            .invalid-validation([hidden]="comment_content.valid || (comment_content.pristine && !contactForm.submitted)")
+              | Essay is required
+          textarea.kts-textarea(rows='15', name="comment_content", [(ngModel)]="essay", #comment_content="ngModel", required)          
+          

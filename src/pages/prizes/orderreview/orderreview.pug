@@ -1,0 +1,45 @@
+.page-wrapper
+  .spinner-container(*ngIf="loading")
+    ion-spinner
+  ion-content.content-wrapper
+    .header-nav
+      ion-icon.arrow-back-icon(tappable, ios="ios-arrow-back", md="ios-arrow-back", (click)="goBack()")
+      h1.headers
+        | Order Review
+    .review-content
+      .left-column    
+        .organization
+          img.logo(src="{{imageUrlCreate(prize.organization_id, prize.organization.images[0])}}" alt="Image not found" onerror="this.onerror=null;this.src='assets/icon/prize_placeholder.svg'")
+          .title
+            | {{prize.organization.name}}         
+      .right-column
+        .review-detail
+          .transaction-detail
+            .comment
+              | Transaction Details
+            .detail-item
+              .detail-title
+                | Your balance:
+              .detail-points
+                | {{balancePoints}} points
+            .detail-item
+              .detail-title
+                | Cost:
+              .detail-points
+                | {{prizePoints}} points
+            .detail-item.remaining-balance
+              .detail-title
+                | Remaining balance:
+              .detail-points
+                | {{redeemedPoints}} points
+          .mailing-detail
+            .comment
+              | Mailing Details        
+            .address
+              | {{address.full_name}}
+              br
+              | {{address.address_one}}
+              br
+              | {{address.city}}, {{address.state}} {{address.zip_code}}
+          button.kts-primary-btn.place-order-button((click)="placeOrder()")
+            | Place Order

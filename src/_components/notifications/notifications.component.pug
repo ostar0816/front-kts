@@ -1,0 +1,20 @@
+.page-wrapper
+  .spinner-container(*ngIf="loading")
+    ion-spinner
+  .notifications-page-wrapper
+    ion-col.notifications-col
+      .title-header
+        |{{title}}
+      mobile-header([isScrolled]="isScrolled", [title]="title")
+    ion-content.lp-list
+      .kts-card
+        .kts-card-wrapper
+          .no-content.center( *ngIf="notifications.length < 1")
+            | You have no notifications
+          a.kts-card-link( *ngFor="let notification of notifications", (click)="goToNotificationDetail(notification.id)")
+            .kts-card-data
+              h2.kts-card-item-header
+                | {{notification.subject}}
+              h3.kts-card-item-info
+                | {{notification.organization_name}}
+            img.link-arrow(src="assets/icon/link-arrow.svg")

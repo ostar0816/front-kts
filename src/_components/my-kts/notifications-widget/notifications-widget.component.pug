@@ -1,0 +1,13 @@
+.notifications-widget-wrapper
+  .notifications-title-row
+    h1.notifications-header 
+      | Notifications
+    a.notifications-link((click)="goToNotifications()")
+      | View all
+  a.notificaitons-items(*ngFor="let notification of notifications", (click)="goToNotificationDetail(notification.id)")
+    .notifications-data
+      h2.single-notification-header
+        | {{notification.subject}}
+      h3.single-notification-organization
+        | {{notification.organization_name}}
+    img.link-arow(src="assets/icon/link-arrow.svg")

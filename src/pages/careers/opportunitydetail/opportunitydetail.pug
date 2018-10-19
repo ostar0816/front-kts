@@ -1,0 +1,20 @@
+.page-wrapper
+  .spinner-container(*ngIf="loading")
+    ion-spinner
+  .content-wrapper
+    mobile-header([isScrolled]="isScrolled", [title]="title", [isArrowBack]="'true'")
+    .left-column    
+      .organization
+        img.logo(src="{{imageUrlCreate(opportunity.organization.id, opportunity.organization.images[0])}}" alt="Image not found" onerror="this.onerror=null;this.src='assets/icon/opportunity_placeholder.svg'")
+        .title
+          | {{opportunity.title}}
+        .organization-name
+          | {{opportunity.organization.name}}
+        button.interested-button((click)="applyOpportunity()")
+          | Interested
+    .right-column
+      .description
+        .description-title
+          | Description
+        .description-content
+          | {{ opportunity.details }}      

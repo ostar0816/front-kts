@@ -1,0 +1,123 @@
+mobile-header {
+  @-webkit-keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  .mobile-header-full-wrapper.before-scroll {
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: white;
+    @include md{
+      display: none;
+    }
+  }
+  .mobile-header-full-wrapper.after-scroll {
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+    z-index: 999;
+  }
+  .arrow-back-icon {
+    cursor: pointer;
+    font-size: 30px;
+    color: #232D3B;
+    margin-right: 10px;
+    @include md{
+      display: none;
+    }
+  }
+  .before-scroll-header{
+    justify-content: flex-start;
+    width: 100%;
+    
+  .kts-header-mobile{
+    opacity: 0;
+    margin: 0 0 0 0;
+    -webkit-animation: fadeIn .3s ease-in 1 forwards;
+    animation: fadeIn .3s ease-in 1 forwards;
+  }
+  }
+  .after-scroll-header{
+    width: 100%;
+    z-index: 1001;
+    text-align: center;
+    padding-left: 0;
+    position: fixed;
+    align-items: flex-end;
+    background-color: transparent;
+    z-index: 1000;
+    padding-left: 0;
+    .kts-header-mobile-scroll{
+      margin-top: 12px;
+      font-size: 16px;
+      font-weight: 800;
+      color: #232D3B;
+      background-color: transparent;
+      width: 100%;
+      -webkit-animation: fadeIn .3s ease-in 1 forwards;
+      animation: fadeIn .3s ease-in 1 forwards;
+      opacity: 0;
+    }
+  }
+
+  .pts-button-wrapper{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 35px;
+    padding-right: 10px;
+    z-index: 1001;
+    width: 100%;
+    background-color: transparent;
+
+    @include md{
+      display: none;
+    }
+    &.after-scroll{
+      padding-top: 20px;
+    }
+  }
+
+  .points-btn {
+    @extend .center;
+    position: relative;
+    height: 23px;
+    width: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 3px;
+    margin-right: 10px;
+    background: linear-gradient(135deg, #EE2F5B 0%, #BE65A6 100%);
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    &::after {
+      @extend .center;
+      position: absolute;
+      border-radius: 50%;
+      top: -6px;
+      right: -6px;
+      content: '+';
+      height: 12px;
+      width: 12px;
+      font-size: 13px;
+      border: 2px solid #FFFFFF;
+      background-color: #C75A97;
+    }
+  }
+}

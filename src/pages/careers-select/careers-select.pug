@@ -1,0 +1,38 @@
+.page-wrapper((resize)="getSize($event)")
+  .header-nav
+    .header-title
+      ion-icon.arrow-back-icon(tappable, ion-item, ios="ios-arrow-back", md="ios-arrow-back", (click)="presentModal()")
+      h1.headers
+        | Choose Careers
+    .button-group
+      button.kts-primary-btn.selected-careers-save(ion-item, [hidden]="selectedCareers.length !==5", (click)="saveCareers()")
+        | Save 
+  .filter-list-page-wrapper
+    ion-col.web-filter-col(col-4)
+      filter-careers
+    ion-col.lp-list-col(col-12, col-md-8)
+      .selected-careers-wrapper([ngClass]="{'desktop-block-version':selectedCareers.length ===0}")
+        .selected-careers-header-row
+          .selected-careers-count
+            | Selected career fields: {{selectedCareers.length}}/5
+          button.kts-primary-btn.selected-careers-save([disabled]="selectedCareers.length !==5", (click)="saveCareers()")
+            | Save
+        .selected-careers
+          .selected-item(*ngFor="let career of selectedCareers; let i = index")
+            .career-title
+              | {{career.title}}
+            span.close((click)="removeSelectedCareer(i)")
+              | &times;          
+      .careers-fields-header
+        | Select 5 careers fields
+      ion-content.lp-list.careers-fields-list(no-padding)
+        .careers-fields-item.desktop-flex-version(*ngFor="let career of filterCareersList")
+          .careers-fields-item-title
+            | {{career.title}}
+          button.select((click)="selectCareer(career)")
+            | Select       
+        .careers-fields-item.mobile-version(*ngFor="let career of filterCareersList", (click)="selectCareer(career)")
+          .careers-fields-item-title
+            | {{career.title}}
+  .floating-filter-btn((click)="presentModal()")
+    | Career Field

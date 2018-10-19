@@ -1,0 +1,20 @@
+.page-wrapper
+  .spinner-container(*ngIf="loading")
+    ion-spinner
+  .content-wrapper
+    mobile-header([isScrolled]="isScrolled", [title]="title", [isArrowBack]="'true'")
+    .left-column    
+      .organization
+        img.logo(src="{{imageUrlCreate(scholarship.organization_id, scholarship.organization.images[0])}}" alt="Image not found" onerror="this.onerror=null;this.src='assets/icon/scholarship_placeholder.svg'")
+        .title
+          | {{scholarship.title}}
+        .price
+          | ${{scholarship.amount}}
+        button.apply-button((click)="applyScholarship()")
+          | Apply
+    .right-column
+      .description
+        .description-title
+          | Description
+        .description-content
+          | {{scholarship.description}}       

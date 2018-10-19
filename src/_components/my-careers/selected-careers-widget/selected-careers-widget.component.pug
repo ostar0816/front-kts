@@ -1,0 +1,17 @@
+.my-careers-wrapper
+  .no-careers(*ngIf="careers.length === 0")
+    .content-title.mobile-version
+      | My Careers
+    img.no-prize(src='assets/imgs/no-prize.svg')
+    .content-comment
+      | Careers Selected
+    .careers-count
+      | 0/5
+  .exist-careers(*ngIf="careers.length > 0")  
+    .content-title
+      | My Careers
+    .career-list      
+      ol
+        li.career-item(*ngFor="let career of careers")
+          | {{career.title}}
+

@@ -1,0 +1,10 @@
+#page-filter
+  .filter-mobile-header(*ngIf="!isPopover")
+    .kts-header-mobile
+      | Select Filters
+    .filter-done-btn((click)="done()")
+      | Done
+  .spacer-25
+  filter-scholarships(*ngIf="filter === 'scholarships'")
+  filter-internships(*ngIf="filter === 'internships'")
+  filter-opportunities(*ngIf="filter === 'opportunities'")  

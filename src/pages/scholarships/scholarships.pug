@@ -1,0 +1,23 @@
+.page-wrapper
+  .spinner-container(*ngIf="loading")
+    ion-spinner
+  .filter-list-page-wrapper
+    ion-col.web-filter-col(col-4)
+      filter-scholarships
+    ion-col.lp-list-col(col-12, col-md-8)
+      mobile-header([isScrolled]="isScrolled", [title]="title")
+      ion-searchbar.kts-searchbar( (ionInput)="searchScholarships($event)", [debounce]="400", placeholder="Search all scholarships...", mode="ios")
+      ion-content.lp-list
+        .lp-item( *ngFor="let scholarship of scholarshipsList; let i = index", (click)="goToDetailPage(scholarship.id)")
+          img.lp-item-image(src="{{imageUrlCreate(scholarship.organization_id, scholarship.organization.images[0])}}" alt="Image not found" onerror="this.onerror=null;this.src='assets/icon/scholarship_placeholder.svg'")
+          .lp-item-info-col
+            .lp-item-title
+              | {{scholarship.title}}
+            .lp-item-value
+              | ${{scholarship.amount}}
+            .lp-item-description
+              | {{scholarship.description}}
+        ion-infinite-scroll((ionInfinite)="doInfinite($event)" )
+          ion-infinite-scroll-content
+  .floating-filter-btn((click)="presentModal()")
+    | Refine

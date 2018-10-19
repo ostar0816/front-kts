@@ -1,0 +1,111 @@
+page-my-kts {
+  .content-wrapper{
+    padding: 10px 0 0 0;
+    width: 1080px;
+    max-width: 1080px;
+    z-index: 2;
+    @include md{
+      margin: 0 10px 0 0;
+    }
+  }
+  .single-column{
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 1000px;
+    @include md{
+      min-height: 550px;
+      padding: 10px 0 0 0;
+    }
+  }
+  .fixed-content{
+    height: 45px;
+  }
+  .header-wrapper{
+    position: fixed;
+  }
+
+  // Notifications
+  .notifications-mobile{
+    margin: 10px 0px 10px 0px;
+    @include md{
+      display: none;
+    }
+  }
+  .right-column{
+    padding-left: 1%;
+    @include md{
+      margin: -10px 0 0 0;
+    }
+  }
+  .notifications-desktop{
+    padding: 10px 5px;
+    width: 100%;
+    overflow-y: auto;
+    display: none;
+    @include md{
+      display: inline;
+    }
+  }
+
+  // Social Media
+  .social-media{
+    height: 70px;
+    margin: 25px 5px 10px 5px;
+    text-align: center;
+    @include md{
+      min-width: 240px;
+    }
+  }
+  .social-media-header{
+    margin: 0 0 20px 0;
+    font-weight: 400;
+    font-size: 16px;
+    @include md{
+      font-size: 12px;
+    }
+    @include lg{
+      font-size: 16px;
+    }
+  }
+  .socmed-icon{
+    margin: 0 15px;
+    @include sm{
+      margin: 0 25px;
+    }
+    @include md{
+      margin: 0 15px;
+    }
+    position: relative;
+  }
+  // Banner
+  .spacer-110 {
+    height: 110px;
+  }
+
+  .sponsor-logos {
+    @extend .center;
+    justify-content: space-around !important;
+    width:100% !important;
+    padding-top: 45px !important;
+    @include md {
+    padding-top: 15px;
+    }
+    .ken-garff {
+      width: 120px;
+      margin-right: 30px;
+      @include md {
+        width: 30%;
+      }
+    }
+    .mountain-america {
+      width: 164px;
+      @include md {
+        width: 45%;
+      }
+    }
+  }
+}
